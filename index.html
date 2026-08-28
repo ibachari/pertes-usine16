@@ -63,6 +63,8 @@ input,textarea{font:inherit;color:inherit}
 .filtres::-webkit-scrollbar{display:none}
 .filtres .puce{flex:0 0 auto;white-space:nowrap}
 .puce{padding:9px 13px;border:1px solid var(--trait);border-radius:3px;background:var(--papier);font-size:13px}
+.puce-ajout{border-style:dashed;color:var(--bleu);font-weight:600}
+.puce-ajout[aria-pressed]{background:var(--papier)}
 .puce[aria-pressed="true"]{background:var(--encre);color:var(--acier);border-color:var(--encre)}
 .puce:focus-visible{outline:2px solid var(--bleu);outline-offset:2px}
 .sect{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ardoise);margin:6px 0 8px}
@@ -657,8 +659,8 @@ function ouvrirFiche(p,qte,source,conf){
     motifChoisi=liste(CFG.motifs)[0]||'';
     operateurChoisi=derniersOperateur()||'';
   }
-  rendrePuces('#rMotifs',CFG.motifs,v=>motifChoisi=v,()=>motifChoisi);
-  rendrePuces('#rOperateurs',CFG.operateurs,v=>operateurChoisi=v,()=>operateurChoisi);
+  rendrePuces('#rMotifs',CFG.motifs,v=>motifChoisi=v,()=>motifChoisi,'motifs');
+  rendrePuces('#rOperateurs',CFG.operateurs,v=>operateurChoisi=v,()=>operateurChoisi,'operateurs');
   majEntete(); majAutres(); majVariantes(); majRaccourcis(); majValeur();
   etape('fiche');
 }
@@ -690,10 +692,28 @@ function majRaccourcis(){
   $('#rRaccourcis').innerHTML=[1,2,5,10,12].map(n=>`<button data-n="${n}">${n}</button>`).join('');
   $$('#rRaccourcis button').forEach(b=>b.onclick=()=>{ $('#rQte').value=b.dataset.n; majValeur(); vibrer(8); });
 }
-function rendrePuces(sel,csv,set,get){
+function rendrePuces(sel,csv,set,get,champ){
   const box=$(sel);
-  box.innerHTML=liste(csv).map(v=>`<button class="puce" aria-pressed="${get()===v}">${v}</button>`).join('');
-  [...box.children].forEach(b=>b.onclick=()=>{ set(b.textContent); [...box.children].forEach(x=>x.setAttribute('aria-pressed',x===b)); });
+  box.innerHTML=liste(csv).map(v=>`<button class="puce" aria-pressed="${get()===v}">${v}</button>`).join('')
+    +(champ?`<button class="puce puce-ajout" data-ajout="1">+ Ajouter</button>`:'');
+  [...box.children].forEach(b=>{
+    if(b.dataset.ajout) return;
+    b.onclick=()=>{ set(b.textContent); [...box.children].forEach(x=>x.setAttribute('aria-pressed',x===b)); };
+  });
+  const plus=box.querySelector('[data-ajout]');
+  if(plus) plus.onclick=async ()=>{
+    const libelle = champ==='operateurs' ? 'Nom de la personne' : 'Nouveau motif';
+    const v=(prompt(libelle)||'').trim();
+    if(!v) return;
+    const l=liste(CFG[champ]);
+    const existe=l.find(x=>x.toLowerCase()===v.toLowerCase());
+    if(!existe){ l.push(v); CFG[champ]=l.join(', '); await sauver(); }
+    set(existe||v);
+    rendrePuces(sel,CFG[champ],set,get,champ);
+    if(champ==='operateurs') editeurListe('#listeOp','operateurs','#nOp');
+    else editeurListe('#listeMotif','motifs','#nMotif');
+    toast(existe?'Déjà dans la liste, sélectionné':v+' ajouté');
+  };
 }
 function majValeur(){
   const q=Math.max(1,+$('#rQte').value||1);
