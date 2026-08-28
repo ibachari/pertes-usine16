@@ -24,60 +24,76 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
 input,textarea{font:inherit;color:inherit}
 
 .app{max-width:520px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;padding:0 14px calc(84px + env(safe-area-inset-bottom))}
-.topbar{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding:18px 2px 14px}
-.brand{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.06em;text-transform:uppercase;line-height:1}
+.topbar{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding:16px 2px 12px}
+.brand{font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:.06em;text-transform:uppercase;line-height:1}
 .brand small{display:block;font-family:var(--mono);font-size:10px;font-weight:400;letter-spacing:.14em;color:var(--ardoise);margin-top:5px}
-.compteur{text-align:right;font-family:var(--mono);font-size:11px;color:var(--ardoise);letter-spacing:.04em}
-.compteur b{display:block;font-family:var(--display);font-size:26px;color:var(--encre);line-height:1;letter-spacing:0}
+.compteur{text-align:right;font-family:var(--mono);font-size:10px;color:var(--ardoise);letter-spacing:.04em}
+.compteur b{display:block;font-family:var(--display);font-size:24px;color:var(--encre);line-height:1;letter-spacing:0}
 .vue{display:none;flex:1;flex-direction:column}
 .vue.actif{display:flex}
 
 .onglets{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;justify-content:center;
   padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:rgba(229,233,232,.94);
   backdrop-filter:blur(10px);border-top:1px solid var(--trait)}
-.onglets .inner{display:flex;gap:6px;width:100%;max-width:520px}
-.onglet{flex:1;padding:11px 6px;border-radius:3px;text-align:center;font-family:var(--display);
-  font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--ardoise);border:1px solid transparent}
+.onglets .inner{display:flex;gap:5px;width:100%;max-width:520px}
+.onglet{flex:1;padding:11px 4px;border-radius:3px;text-align:center;font-family:var(--display);
+  font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--ardoise);border:1px solid transparent}
 .onglet[aria-selected="true"]{background:var(--encre);color:var(--acier)}
 .onglet:focus-visible{outline:2px solid var(--bleu);outline-offset:2px}
 
-/* ---- accueil ---- */
-.zone-scan{flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px;padding:8px 0 20px}
-.viseur{position:relative;aspect-ratio:4/5;border:1px solid var(--trait);background:var(--papier);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;overflow:hidden}
-.viseur .coins{position:absolute;inset:12px;pointer-events:none}
-.viseur .coins span{position:absolute;width:26px;height:26px;border:2px solid var(--encre)}
-.viseur .coins span:nth-child(1){top:0;left:0;border-right:0;border-bottom:0}
-.viseur .coins span:nth-child(2){top:0;right:0;border-left:0;border-bottom:0}
-.viseur .coins span:nth-child(3){bottom:0;left:0;border-right:0;border-top:0}
-.viseur .coins span:nth-child(4){bottom:0;right:0;border-left:0;border-top:0}
-.viseur p{margin:0;max-width:240px;text-align:center;color:var(--ardoise);font-size:14px}
-.pictos{font-family:var(--display);font-size:15px;letter-spacing:.1em;text-transform:uppercase}
-
-.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:17px 18px;border-radius:3px;
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px 18px;border-radius:3px;
   font-family:var(--display);font-size:16px;letter-spacing:.1em;text-transform:uppercase}
 .btn:focus-visible{outline:2px solid var(--bleu);outline-offset:3px}
 .btn-principal{background:var(--encre);color:var(--acier)}
 .btn-principal:active{transform:translateY(1px)}
-.btn-second{background:transparent;border:1px solid var(--trait);color:var(--ardoise);padding:13px;font-size:13px}
+.btn-second{background:transparent;border:1px solid var(--trait);color:var(--ardoise);padding:12px;font-size:13px}
 .btn-vert{background:var(--vert);color:#fff}
+.btn-rouge{background:transparent;border:1px solid var(--orange);color:var(--orange);padding:12px;font-size:13px}
 .rangee{display:flex;gap:8px}
 .rangee .btn{flex:1}
 
+/* ---- catalogue (écran principal) ---- */
+.chercher{display:flex;gap:8px;margin-bottom:10px}
+.champ{width:100%;padding:14px;background:var(--papier);border:1px solid var(--trait);border-radius:3px;font-size:16px}
+.champ:focus{outline:2px solid var(--bleu);outline-offset:-1px}
+.cam{flex:0 0 auto;width:54px;border:1px solid var(--encre);background:var(--encre);color:var(--acier);
+  border-radius:3px;display:flex;align-items:center;justify-content:center}
+.cam svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7}
+.filtres{display:flex;gap:5px;overflow-x:auto;padding-bottom:10px;margin-bottom:2px;scrollbar-width:none}
+.filtres::-webkit-scrollbar{display:none}
+.filtres .puce{flex:0 0 auto;white-space:nowrap}
+.puce{padding:9px 13px;border:1px solid var(--trait);border-radius:3px;background:var(--papier);font-size:13px}
+.puce[aria-pressed="true"]{background:var(--encre);color:var(--acier);border-color:var(--encre)}
+.puce:focus-visible{outline:2px solid var(--bleu);outline-offset:2px}
+.sect{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ardoise);margin:6px 0 8px}
+.grille{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:16px}
+.grille button{background:var(--papier);border:1px solid var(--encre);border-radius:3px;padding:12px 11px;text-align:left;min-height:62px;
+  display:flex;flex-direction:column;justify-content:center;gap:3px}
+.grille button:active{background:var(--encre);color:var(--acier)}
+.grille .n{font-weight:600;font-size:13px;line-height:1.2}
+.grille .c{font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--ardoise)}
+.grille button:active .c{color:var(--acier-2)}
+.liste{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+.liste li button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;
+  padding:13px 14px;background:var(--papier);border:1px solid var(--trait);border-radius:3px}
+.liste li button:active{background:var(--acier-2)}
+.liste .n{font-weight:600;font-size:14px}
+.liste .c{font-family:var(--mono);font-size:11px;color:var(--bleu)}
+.vide-msg{color:var(--ardoise);font-size:13px;padding:16px 2px;text-align:center}
+
 /* ---- analyse ---- */
-.analyse{position:relative;aspect-ratio:4/5;overflow:hidden;border:1px solid var(--trait);background:var(--encre)}
+.analyse{position:relative;aspect-ratio:4/5;overflow:hidden;border:1px solid var(--trait);background:var(--encre);margin-bottom:14px}
 .analyse img{width:100%;height:100%;object-fit:cover;opacity:.55;filter:grayscale(.3)}
 .scanline{position:absolute;left:0;right:0;height:2px;background:var(--orange);box-shadow:0 0 18px 3px rgba(232,84,31,.7);animation:balayage 1.5s ease-in-out infinite}
 @keyframes balayage{0%{top:4%}50%{top:96%}100%{top:4%}}
 .analyse .etat{position:absolute;left:0;right:0;bottom:0;padding:14px;background:linear-gradient(0deg,rgba(18,23,26,.95),transparent);
   color:var(--acier);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
 
-/* ---- résultat : photo + bandeau ---- */
-.photo-res{position:relative;height:clamp(150px,26vh,230px);overflow:hidden;border:1px solid var(--trait);border-bottom:0;background:var(--acier-2)}
+/* ---- fiche de saisie ---- */
+.photo-res{position:relative;height:clamp(130px,22vh,200px);overflow:hidden;border:1px solid var(--trait);border-bottom:0;background:var(--acier-2)}
 .photo-res img{width:100%;height:100%;object-fit:cover}
 .photo-res .relance{position:absolute;top:10px;right:10px;background:rgba(18,23,26,.82);color:var(--acier);
   padding:8px 12px;border-radius:3px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
-
 .bandeau{background:var(--papier);border:1px solid var(--encre);border-top:3px solid var(--encre);padding:0 0 16px}
 .identite{padding:14px 16px 13px;border-bottom:1px dashed var(--trait)}
 .eyebrow{display:flex;justify-content:space-between;gap:8px;font-family:var(--mono);font-size:10px;
@@ -91,7 +107,6 @@ input,textarea{font:inherit;color:inherit}
 .corriger{margin-top:12px;width:100%;padding:11px;border:1px solid var(--trait);border-radius:3px;
   font-family:var(--display);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--bleu)}
 .corriger:active{background:var(--acier)}
-
 .bloc{padding:14px 16px 0}
 .bloc.masque{display:none}
 .etiquette{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ardoise);margin-bottom:8px}
@@ -103,28 +118,16 @@ input,textarea{font:inherit;color:inherit}
 .raccourcis{display:flex;gap:6px;margin-top:8px}
 .raccourcis button{flex:1;padding:8px;border:1px solid var(--trait);border-radius:3px;font-family:var(--mono);font-size:12px;color:var(--ardoise)}
 .puces{display:flex;flex-wrap:wrap;gap:6px}
-.puce{padding:9px 13px;border:1px solid var(--trait);border-radius:3px;background:var(--papier);font-size:13px}
-.puce[aria-pressed="true"]{background:var(--encre);color:var(--acier);border-color:var(--encre)}
-.puce:focus-visible{outline:2px solid var(--bleu);outline-offset:2px}
 .puce.alt{border-style:dashed;color:var(--bleu)}
 .total{display:flex;justify-content:space-between;align-items:baseline;margin:16px 16px 0;padding-top:12px;border-top:1px dashed var(--trait)}
 .total span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ardoise)}
 .total b{font-family:var(--display);font-size:30px}
 .pieds{padding:14px 16px 0;display:flex;flex-direction:column;gap:8px}
-
-.champ{width:100%;padding:14px;background:var(--papier);border:1px solid var(--trait);border-radius:3px;font-size:16px}
-.champ:focus{outline:2px solid var(--bleu);outline-offset:-1px}
-.liste{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
-.liste li button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;
-  padding:13px 14px;background:var(--papier);border:1px solid var(--trait);border-radius:3px}
-.liste li button:active{background:var(--acier-2)}
-.liste .n{font-weight:600}
-.liste .c{font-family:var(--mono);font-size:11px;color:var(--bleu)}
-
 .message{background:var(--papier);border:1px solid var(--trait);padding:22px 18px;text-align:center}
 .message h3{font-family:var(--display);font-size:22px;text-transform:uppercase;margin:0 0 8px;letter-spacing:.04em}
 .message p{margin:0 0 16px;color:var(--ardoise);font-size:14px}
 
+/* ---- journal / bilan ---- */
 .bilan{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--trait);border:1px solid var(--trait);margin-bottom:14px}
 .bilan div{background:var(--papier);padding:13px 12px}
 .bilan b{display:block;font-family:var(--display);font-size:25px;line-height:1.05}
@@ -136,16 +139,6 @@ input,textarea{font:inherit;color:inherit}
 .ligne .v{font-family:var(--mono);font-size:11px;color:var(--ardoise);text-align:right}
 .pastille{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--orange);vertical-align:middle;margin-right:5px}
 .pastille.ok{background:var(--vert)}
-
-.carte{background:var(--papier);border:1px solid var(--trait);padding:16px;margin-bottom:10px}
-.carte h4{font-family:var(--display);font-size:16px;text-transform:uppercase;letter-spacing:.06em;margin:0 0 4px}
-.carte p{margin:0 0 12px;font-size:13px;color:var(--ardoise)}
-textarea.champ{min-height:150px;font-family:var(--mono);font-size:11px;resize:vertical;white-space:pre;overflow-wrap:normal;overflow-x:auto}
-
-.toast{position:fixed;left:50%;bottom:96px;transform:translate(-50%,20px);z-index:60;opacity:0;background:var(--encre);
-  color:var(--acier);padding:12px 18px;border-radius:3px;font-family:var(--display);font-size:14px;letter-spacing:.06em;
-  text-transform:uppercase;transition:.2s;pointer-events:none;max-width:90vw;text-align:center}
-.toast.vu{opacity:1;transform:translate(-50%,0)}
 .mois-titre{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:12px;padding:0 2px}
 .mois-titre span{font-family:var(--display);font-size:22px;text-transform:uppercase;letter-spacing:.05em}
 .mois-titre em{font-family:var(--mono);font-size:10px;font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:var(--ardoise)}
@@ -154,11 +147,11 @@ textarea.champ{min-height:150px;font-family:var(--mono);font-size:11px;resize:ve
   display:flex;justify-content:space-between;align-items:baseline;gap:8px}
 .graph h4 em{font-family:var(--mono);font-size:10px;font-style:normal;letter-spacing:.1em;color:var(--ardoise);text-transform:none}
 .barres{display:flex;align-items:flex-end;gap:2px;height:120px}
-.barres .col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%;position:relative}
+.barres .col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%}
 .barres .col i{display:block;background:var(--bleu);min-height:2px}
-.barres .col.today i{background:var(--orange)}
 .barres .col.vide i{background:var(--acier-2)}
-.axe{display:flex;gap:3px;margin-top:5px}
+.barres .col.today i{background:var(--orange)}
+.axe{display:flex;gap:2px;margin-top:5px}
 .axe span{flex:1;text-align:center;font-family:var(--mono);font-size:7px;color:var(--ardoise);letter-spacing:-.03em}
 .rang{margin-bottom:9px}
 .rang .l{display:flex;justify-content:space-between;gap:10px;font-size:12px;margin-bottom:4px}
@@ -167,6 +160,30 @@ textarea.champ{min-height:150px;font-family:var(--mono);font-size:11px;resize:ve
 .rang .p i{display:block;height:100%;background:var(--encre)}
 .rang:nth-child(1) .p i{background:var(--orange)}
 .note{font-size:11px;color:var(--ardoise);text-align:center;margin:4px 0 0;line-height:1.5}
+
+/* ---- réglages ---- */
+.carte{background:var(--papier);border:1px solid var(--trait);padding:16px;margin-bottom:10px}
+.carte h4{font-family:var(--display);font-size:16px;text-transform:uppercase;letter-spacing:.06em;margin:0 0 4px;
+  display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.carte h4 em{font-family:var(--mono);font-size:10px;font-style:normal;color:var(--ardoise);text-transform:none;letter-spacing:0}
+.carte p{margin:0 0 12px;font-size:13px;color:var(--ardoise)}
+.etiq{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.etiq .item{display:flex;align-items:center;gap:8px;padding:8px 8px 8px 12px;border:1px solid var(--trait);border-radius:3px;font-size:13px;background:var(--papier)}
+.etiq .item button{width:22px;height:22px;border-radius:50%;background:var(--acier);color:var(--ardoise);
+  display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1;flex:0 0 auto}
+.etiq .item button:active{background:var(--orange);color:#fff}
+.ajout{display:flex;gap:6px}
+.ajout .champ{flex:1}
+.ajout .btn{width:auto;flex:0 0 auto;padding:0 20px}
+textarea.champ{min-height:130px;font-family:var(--mono);font-size:11px;resize:vertical;white-space:pre;overflow-wrap:normal;overflow-x:auto}
+.repli{font-family:var(--display);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--bleu);padding:6px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:6px}
+
+.toast{position:fixed;left:50%;bottom:96px;transform:translate(-50%,20px);z-index:60;opacity:0;background:var(--encre);
+  color:var(--acier);padding:12px 18px;border-radius:3px;font-family:var(--display);font-size:14px;letter-spacing:.06em;
+  text-transform:uppercase;transition:.2s;pointer-events:none;max-width:90vw;text-align:center}
+.toast.vu{opacity:1;transform:translate(-50%,0)}
+.alerte{background:#FDF0E9;border:1px solid var(--orange);color:#8C2D06;padding:11px 13px;font-size:12px;margin-bottom:10px;border-radius:3px}
 .masque{display:none!important}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
@@ -178,51 +195,47 @@ textarea.champ{min-height:150px;font-family:var(--mono);font-size:11px;resize:ve
     <div class="compteur"><b id="cptJour">0</b>pertes aujourd'hui</div>
   </div>
 
-  <section class="vue actif" id="vue-scan">
-    <!-- accueil -->
-    <div id="etape-accueil" class="zone-scan">
-      <div class="viseur">
-        <div class="coins"><span></span><span></span><span></span><span></span></div>
-        <div class="pictos">Cadrer le produit</div>
-        <p>Pose le produit sur un fond uni. L'appli le reconnaît, tu saisis la quantité.</p>
+  <section class="vue actif" id="vue-saisie">
+    <!-- catalogue : écran principal -->
+    <div id="etape-accueil">
+      <div class="chercher">
+        <input class="champ" id="q" placeholder="Chercher un produit…" autocomplete="off">
+        <button class="cam" id="btnPhoto" aria-label="Scanner une photo">
+          <svg viewBox="0 0 24 24"><path d="M3 7h4l2-2h6l2 2h4v12H3z"/><circle cx="12" cy="13" r="3.5"/></svg>
+        </button>
       </div>
-      <button class="btn btn-principal" id="btnPhoto">Scanner le produit</button>
-      <div class="rangee">
-        <button class="btn btn-second" id="btnFichier">Depuis la galerie</button>
-        <button class="btn btn-second" id="btnManuel">Saisie manuelle</button>
-      </div>
+      <div class="filtres" id="filtres"></div>
+      <div id="frequents"></div>
+      <div class="sect" id="sectListe">Tous les produits</div>
+      <ul class="liste" id="catalogueListe"></ul>
     </div>
 
-    <!-- analyse -->
-    <div id="etape-analyse" class="zone-scan masque">
+    <!-- analyse photo -->
+    <div id="etape-analyse" class="masque">
       <div class="analyse"><img id="imgAnalyse" alt="Photo en cours d'analyse"><div class="scanline"></div><div class="etat">Identification en cours…</div></div>
       <button class="btn btn-second" id="btnAnnulerAnalyse">Annuler</button>
     </div>
 
-    <!-- résultat -->
-    <div id="etape-resultat" class="masque">
-      <div class="photo-res" id="photoRes"><img id="imgRes" alt=""><button class="relance" id="btnRelancer">Reprendre</button></div>
-
+    <!-- fiche de saisie -->
+    <div id="etape-fiche" class="masque">
+      <div class="photo-res masque" id="photoRes"><img id="imgRes" alt=""><button class="relance" id="btnRelancer">Reprendre</button></div>
       <div class="bandeau">
         <div class="identite">
-          <div class="eyebrow"><span id="rSource">Produit reconnu</span><span id="rConf"></span></div>
+          <div class="eyebrow"><span id="rSource">Saisie manuelle</span><span id="rConf"></span></div>
           <h2 id="rNom">—</h2>
           <div class="ref" id="rCat">—</div>
-          <div class="jauge" id="rJauge"><i style="width:0%"></i></div>
+          <div class="jauge masque" id="rJauge"><i style="width:0%"></i></div>
           <div class="indices" id="rIndices"></div>
-          <button class="corriger" id="btnCorriger">Ce n'est pas le bon produit</button>
+          <button class="corriger" id="btnCorriger">Changer de produit</button>
         </div>
-
         <div class="bloc masque" id="blocAutres">
           <div class="etiquette">Autres possibilités</div>
           <div class="puces" id="rAutres"></div>
         </div>
-
         <div class="bloc masque" id="blocVariantes">
           <div class="etiquette">Format exact</div>
           <div class="puces" id="rVariantes"></div>
         </div>
-
         <div class="bloc">
           <div class="etiquette">Quantité perdue</div>
           <div class="stepper">
@@ -232,24 +245,13 @@ textarea.champ{min-height:150px;font-family:var(--mono);font-size:11px;resize:ve
           </div>
           <div class="raccourcis" id="rRaccourcis"></div>
         </div>
-
-        <div class="bloc">
-          <div class="etiquette">Motif</div>
-          <div class="puces" id="rMotifs"></div>
-        </div>
-
-        <div class="bloc">
-          <div class="etiquette">Opérateur</div>
-          <div class="puces" id="rOperateurs"></div>
-        </div>
-
+        <div class="bloc"><div class="etiquette">Motif</div><div class="puces" id="rMotifs"></div></div>
+        <div class="bloc"><div class="etiquette">Opérateur</div><div class="puces" id="rOperateurs"></div></div>
         <div class="bloc">
           <div class="etiquette">Commentaire (facultatif)</div>
           <input class="champ" id="rComment" placeholder="Ex. bac tombé au dépilage">
         </div>
-
         <div class="total"><span id="rLabelTotal">Poids perdu</span><b id="rValeur">0 g</b></div>
-
         <div class="pieds">
           <button class="btn btn-vert" id="btnEnregistrer">Enregistrer la perte</button>
           <button class="btn btn-second" id="btnAbandonner">Annuler</button>
@@ -261,17 +263,10 @@ textarea.champ{min-height:150px;font-family:var(--mono);font-size:11px;resize:ve
     <div id="etape-vide" class="masque">
       <div class="message">
         <h3 id="videTitre">Produit non reconnu</h3>
-        <p id="videTexte">Choisis l'article dans le catalogue pour déclarer la perte.</p>
+        <p id="videTexte">Choisis l'article dans le catalogue.</p>
         <button class="btn btn-principal" id="btnVideChercher">Choisir dans le catalogue</button>
         <button class="btn btn-second" id="btnVideRetour" style="margin-top:8px">Reprendre une photo</button>
       </div>
-    </div>
-
-    <!-- recherche -->
-    <div id="etape-recherche" class="masque">
-      <input class="champ" id="rechercheInput" placeholder="Nom ou catégorie…" autocomplete="off">
-      <ul class="liste" id="rechercheListe"></ul>
-      <button class="btn btn-second" id="btnRetourScan" style="margin-top:14px">Retour</button>
     </div>
   </section>
 
@@ -295,64 +290,91 @@ textarea.champ{min-height:150px;font-family:var(--mono);font-size:11px;resize:ve
       <div><b id="kUni">0</b><span>unités</span></div>
       <div><b id="kDecl">0</b><span>déclarations</span></div>
     </div>
-    <div class="graph">
-      <h4>Jour par jour <em id="gMax"></em></h4>
-      <div id="gJours"></div>
-    </div>
-    <div class="graph">
-      <h4>Par catégorie</h4>
-      <div id="gCat"></div>
-    </div>
-    <div class="graph">
-      <h4>Par produit</h4>
-      <div id="gProd"></div>
-    </div>
-    <p class="note">Seul le mois en cours est affiché ici. L'historique complet et les bilans par année sont dans le Google Sheet.</p>
+    <div class="graph"><h4>Jour par jour <em id="gMax"></em></h4><div id="gJours"></div></div>
+    <div class="graph"><h4>Par catégorie</h4><div id="gCat"></div></div>
+    <div class="graph"><h4>Par produit</h4><div id="gProd"></div></div>
+    <p class="note">Seul le mois en cours est affiché. L'historique complet et les bilans par année sont dans le Google Sheet.</p>
   </section>
 
   <section class="vue" id="vue-reglages">
+    <div class="alerte masque" id="alerteStockage">Ce navigateur ne conserve pas les réglages : ils seront perdus à la fermeture. Vérifie que la navigation privée est désactivée.</div>
+
     <div class="carte">
       <h4>Destination des relevés</h4>
-      <p>URL de l'application web Apps Script. Elle reçoit les déclarations et fait aussi passer les photos à l'IA.</p>
+      <p>URL de l'application web Apps Script. Elle reçoit les déclarations et fait passer les photos à l'IA.</p>
       <input class="champ" id="cfgWebhook" placeholder="https://script.google.com/macros/s/…/exec">
+      <button class="btn btn-second" id="btnTestWebhook" style="margin-top:8px">Tester la connexion</button>
     </div>
+
     <div class="carte">
-      <h4>Catalogue produits <span id="cptProduits" style="font-family:var(--mono);font-size:11px;color:var(--ardoise)"></span></h4>
-      <p>Une ligne par article : <b>Catégorie ; Produit ; Poids ; Description visuelle ; Prix €</b>. Le prix est facultatif. Tu peux coller directement les colonnes depuis Excel.</p>
-      <textarea class="champ" id="cfgCatalogue" spellcheck="false"></textarea>
+      <h4>Opérateurs <em id="nOp"></em></h4>
+      <p>Touche la croix pour retirer quelqu'un.</p>
+      <div class="etiq" id="listeOp"></div>
+      <div class="ajout">
+        <input class="champ" id="newOp" placeholder="Nom de l'opérateur" autocomplete="off">
+        <button class="btn btn-principal" id="addOp">+</button>
+      </div>
     </div>
+
     <div class="carte">
-      <h4>Opérateurs</h4><p>Séparés par des virgules.</p>
-      <input class="champ" id="cfgOperateurs">
+      <h4>Motifs de perte <em id="nMotif"></em></h4>
+      <p>Le premier de la liste est proposé par défaut.</p>
+      <div class="etiq" id="listeMotif"></div>
+      <div class="ajout">
+        <input class="champ" id="newMotif" placeholder="Nouveau motif" autocomplete="off">
+        <button class="btn btn-principal" id="addMotif">+</button>
+      </div>
     </div>
+
     <div class="carte">
-      <h4>Motifs de perte</h4><p>Séparés par des virgules.</p>
-      <input class="champ" id="cfgMotifs">
+      <h4>Produits <em id="nProd"></em></h4>
+      <p>Ajoute un article au catalogue.</p>
+      <div class="grid2">
+        <input class="champ" id="pNom" placeholder="Nom du produit" autocomplete="off">
+        <input class="champ" id="pCat" placeholder="Catégorie" autocomplete="off" list="lstCats">
+        <input class="champ" id="pPoids" placeholder="Poids en g" inputmode="numeric">
+        <input class="champ" id="pDesc" placeholder="Description visuelle">
+      </div>
+      <datalist id="lstCats"></datalist>
+      <button class="btn btn-principal" id="addProd">Ajouter au catalogue</button>
+      <button class="repli" id="voirCat">Modifier le catalogue en entier ▾</button>
+      <div id="zoneCat" class="masque">
+        <p>Une ligne par article : <b>Catégorie ; Produit ; Poids ; Description ; Prix €</b>. Le collage depuis Excel fonctionne.</p>
+        <textarea class="champ" id="cfgCatalogue" spellcheck="false"></textarea>
+        <button class="btn btn-principal" id="btnSauverCat" style="margin-top:8px">Enregistrer le catalogue</button>
+      </div>
     </div>
-    <button class="btn btn-principal" id="btnSauverCfg">Enregistrer les réglages</button>
+
+    <div class="carte">
+      <h4>Remise à zéro</h4>
+      <p>Restaure les réglages d'origine. Le journal des pertes n'est pas touché.</p>
+      <button class="btn btn-rouge" id="btnReset">Réinitialiser les réglages</button>
+    </div>
   </section>
 </div>
 
 <nav class="onglets"><div class="inner">
-  <button class="onglet" data-vue="scan" aria-selected="true">Scan</button>
+  <button class="onglet" data-vue="saisie" aria-selected="true">Saisie</button>
   <button class="onglet" data-vue="journal" aria-selected="false">Journal</button>
   <button class="onglet" data-vue="bilan" aria-selected="false">Bilan</button>
   <button class="onglet" data-vue="reglages" aria-selected="false">Réglages</button>
 </div></nav>
 
 <input type="file" id="filePhoto" accept="image/*" capture="environment" class="masque">
-<input type="file" id="fileGalerie" accept="image/*" class="masque">
 <div class="toast" id="toast"></div>
 
 <script>
 /* =========================================================
-   1. CATALOGUE — Catégorie;Produit;Poids;Description;Prix
+   1. CATALOGUE PAR DÉFAUT — Catégorie;Produit;Poids;Description;Prix
    ========================================================= */
 const CATALOGUE_DEFAUT = `Flan Nature;Flan Nature (Petit);900;Flan rond doré, petit diamètre, pâte fine visible, surface lisse légèrement caramélisée
 Flan Nature;Flan Nature (Moyen);1400;Même flan doré, diamètre intermédiaire, appareil plus haut, bords de pâte nets
 Flan Nature;Flan Nature (Grand);2100;Grand flan doré, diamètre maximal, épaisseur généreuse, surface caramélisée uniforme
+Flan Nature;Flan Nature – Quart;225;Quart de flan nature, coupe nette, crème claire, pâte fine
+Flan Nature;Flan Nature – Part;175;Part de flan nature, tranche fine, coupe nette
 Flan Vanille;Flan Vanille;900;Flan doré parsemé de grains noirs de vanille, surface tachetée, pâte fine
 Flan Vanille;Flan Vanille – Quart;225;Quart de flan vanille, coupe nette révélant crème claire mouchetée de vanille
+Flan Vanille;Flan Vanille – Part;175;Part de flan vanille, tranche fine, crème mouchetée
 Flan Signature;Signature – Exotique;900;Flan jaune orangé, surface fruitée brillante, éclats de fruits exotiques visibles
 Flan Signature;Signature – Exotique – Quart;225;Quart de flan, coupe nette, crème jaune orangé, pâte fine visible
 Flan Signature;Signature – Noisette;900;Flan beige praliné, surface piquée d'éclats de noisettes torréfiées
@@ -367,19 +389,23 @@ Flan Signature;Signature – Framboise Citron-vert;900;Flan rose framboise, zest
 Flan Signature;Signature – Framboise Citron-vert – Quart;225;Quart de flan, coupe nette, crème rose framboise, zestes verts visibles
 Cookies;Cookies Cannelle et Noix;80;Cookie brun clair, cerneaux de noix apparents, surface craquelée, aspect rustique
 Cookies;Cookies Chocolat au Lait et Amandes Caramélisées;80;Cookie doré, pépites de chocolat au lait, amandes caramélisées brillantes
-Cookies;Cookies Matcha Chocolat Blanc;80;Cookie vert matcha, pépites blanches contrastées, couleur immédiatement reconnaissable en surface
+Cookies;Cookies Matcha Chocolat Blanc;80;Cookie vert matcha, pépites blanches contrastées, couleur reconnaissable en surface
 Cookies;Cookies Pépites de Chocolat Blanc;80;Cookie blond, grosses pépites de chocolat blanc fondues, bords dorés
 Cookies;Cookies Pépites Chocolat Noir;80;Cookie brun doré, grosses pépites de chocolat noir, centre moelleux
-Pâtisserie;Fondant 120 gr;120;Petit fondant brun foncé individuel, surface craquelée, forme ronde, portion unique
+Pâtisserie;Fondant 120 gr;120;Petit fondant brun foncé individuel, surface craquelée, forme ronde
+Pâtisserie;Fondant 190 gr;190;Fondant brun foncé, format intermédiaire, surface craquelée
 Pâtisserie;Fondant 300 gr;300;Grand fondant brun foncé à partager, surface craquelée, hauteur marquée
-Pâtisserie;Pain d'épices;300;Cake rectangulaire brun foncé, surface bombée et brillante, tranche dense
+Pâtisserie;Fondant 400 gr;400;Très grand fondant brun foncé, surface craquelée, format familial
+Pâtisserie;Pain d'épices 100 gr;100;Petit cake brun foncé, surface bombée et brillante, tranche dense
+Pâtisserie;Pain d'épices 300 gr;300;Cake rectangulaire brun foncé, surface bombée et brillante, tranche dense
 Pâtisserie;Pâtisserie de la semaine;105;Pâtisserie individuelle, visuel variable chaque semaine selon la création du chef
 Viennoiserie;Croissant;70;Croissant feuilleté doré, forme courbée classique, couches visibles et brillantes
 Viennoiserie;Pain au chocolat;70;Rectangle feuilleté doré, deux barres de chocolat visibles aux extrémités
 Viennoiserie;Croissant framboise;70;Croissant doré, garniture framboise rouge visible, forme légèrement plus arrondie
 Pain;Baguette Tradition;250;Baguette fine allongée, croûte dorée irrégulière, grignes marquées, pointes effilées
 Pain;Tourte de Seigle;640;Grosse miche ronde et sombre, croûte farinée craquelée, aspect rustique
-Pain;Focaccia 125 gr;125;Pavé plat rectangulaire, surface alvéolée et huilée, dorée, parsemée de sel
+Pain;Focaccia 170 gr;170;Pavé plat rectangulaire, surface alvéolée et huilée, dorée, parsemée de sel
+Pain;Focaccia 370 gr;370;Grande focaccia plate, surface alvéolée et huilée, format à partager
 Pain;Pain Bara;600;Grande miche de campagne ovale, croûte épaisse dorée, farine en surface
 Pain;Pain Camblysien;500;Pain allongé façonné main, croûte fine dorée, taille moyenne
 Pain;Pain de mie complet;420;Pain rectangulaire moulé, mie brune serrée, croûte fine et souple
@@ -388,28 +414,46 @@ Pain;Pain petit Épeautre;580;Pain allongé beige doré, mie couleur miel, croû
 Pain;Pain Savary;540;Miche signature, croûte épaisse caramélisée, grigne franche, farine en surface
 Traiteur;Quiche;250;Part triangulaire, garniture dorée visible en surface, bord de pâte apparent
 Traiteur;Salade;250;Barquette transparente, salade composée colorée, assaisonnement présenté à part
-Traiteur;Sandwich;350;Sandwich sur pain maison, garniture visible en coupe, format généreux`;
+Traiteur;Sandwich;350;Sandwich sur pain maison, garniture visible en coupe, format généreux
+Traiteur;Plat du jour;300;Barquette de plat cuisiné, garniture visible, format individuel`;
 
 const CONFIG_DEFAUT = {
   webhook:'',
   catalogue:CATALOGUE_DEFAUT,
-  operateurs:'Mélanie, Morgane, Marion, Lea',
-  motifs:'Casse, DLC dépassée, Non-conformité, Offert'
+  operateurs:'Ferrat-Keller Morgane, Ion, Le Roux Mélanie, Potier Léa, Marion, Lana Bouvry, Lou Kermarrec, Inès Pichard, Caetano Mélanie, Camille, Cathy Garcia',
+  motifs:'Casse, DLC dépassée, Invendu, Cuisson ratée, Non-conformité, Retour client, Chute de production, Erreur de préparation'
 };
 
 /* =========================================================
-   2. STOCKAGE
+   2. STOCKAGE — persistant partout
    ========================================================= */
 const memoire={};
+let STOCKAGE='memoire';
+try{ if(typeof localStorage!=='undefined'){ localStorage.setItem('_t','1'); localStorage.removeItem('_t'); STOCKAGE='local'; } }catch(e){}
+if(typeof window!=='undefined' && window.storage) STOCKAGE='hote';
+
 const store={
-  async get(k){ if(window.storage){ try{ const r=await window.storage.get(k); return r?JSON.parse(r.value):null; }catch(e){ return null; } } return memoire[k]??null; },
-  async set(k,v){ if(window.storage){ try{ await window.storage.set(k,JSON.stringify(v)); return true; }catch(e){} } memoire[k]=v; return true; }
+  async get(k){
+    try{
+      if(STOCKAGE==='hote'){ const r=await window.storage.get(k); return r?JSON.parse(r.value):null; }
+      if(STOCKAGE==='local'){ const v=localStorage.getItem(k); return v?JSON.parse(v):null; }
+    }catch(e){}
+    return memoire[k]??null;
+  },
+  async set(k,v){
+    try{
+      if(STOCKAGE==='hote'){ await window.storage.set(k,JSON.stringify(v)); return true; }
+      if(STOCKAGE==='local'){ localStorage.setItem(k,JSON.stringify(v)); return true; }
+    }catch(e){}
+    memoire[k]=v; return true;
+  }
 };
+
 let CFG={...CONFIG_DEFAUT}, PRODUITS=[], JOURNAL=[], AVEC_PRIX=false;
 
 const slug=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 function famille(nom,cat){
-  const base=nom.replace(/\s*\([^)]*\)\s*/g,' ').replace(/\s*[–\-—]\s*quart\s*$/i,'')
+  const base=nom.replace(/\s*\([^)]*\)\s*/g,' ').replace(/\s*[–\-—]\s*(quart|part)\s*$/i,'')
                 .replace(/\s+\d+\s*gr?\b/gi,' ').replace(/\s{2,}/g,' ').trim();
   return slug(cat)+'::'+slug(base);
 }
@@ -425,13 +469,16 @@ function parseCatalogue(txt){
   AVEC_PRIX=out.some(p=>p.pu>0);
   return out;
 }
+const enCSV=()=>PRODUITS.map(p=>[p.cat,p.nom,p.poids,p.desc,p.pu||''].join(';')).join('\n');
 const variantes=p=>PRODUITS.filter(x=>x.fam===p.fam);
 const formatDe=p=>{
   const m=p.nom.match(/\(([^)]+)\)/); if(m) return m[1];
   if(/quart\s*$/i.test(p.nom)) return 'Quart';
+  if(/part\s*$/i.test(p.nom)) return 'Part';
   const g=p.nom.match(/(\d+)\s*gr?\b/i); if(g) return g[1]+' g';
-  return p.poids?p.poids+' g':'Standard';
+  return p.poids?p.poids+' g':'Entier';
 };
+const liste=s=>String(s||'').split(',').map(v=>v.trim()).filter(Boolean);
 
 /* =========================================================
    3. NAVIGATION
@@ -442,20 +489,60 @@ $$('.onglet').forEach(o=>o.addEventListener('click',()=>{
   $$('.vue').forEach(v=>v.classList.toggle('actif',v.id==='vue-'+o.dataset.vue));
   if(o.dataset.vue==='journal') rendreJournal();
   if(o.dataset.vue==='bilan') rendreBilan();
+  window.scrollTo(0,0);
 }));
-function etape(id){ ['accueil','analyse','resultat','vide','recherche'].forEach(e=>$('#etape-'+e).classList.toggle('masque',e!==id)); window.scrollTo(0,0); }
+function etape(id){ ['accueil','analyse','fiche','vide'].forEach(e=>$('#etape-'+e).classList.toggle('masque',e!==id)); window.scrollTo(0,0); }
+function onglet(nom){ $$('.onglet').forEach(o=>{ if(o.dataset.vue===nom) o.click(); }); }
 let tToast;
 function toast(m){ const t=$('#toast'); t.textContent=m; t.classList.add('vu'); clearTimeout(tToast); tToast=setTimeout(()=>t.classList.remove('vu'),2600); }
 function vibrer(ms){ if(navigator.vibrate) navigator.vibrate(ms); }
+const nb=(v,d=0)=>v.toLocaleString('fr-FR',{minimumFractionDigits:d,maximumFractionDigits:d});
 
 /* =========================================================
-   4. PHOTO
+   4. CATALOGUE — écran principal
+   ========================================================= */
+let filtreCat='';
+function rendreFiltres(){
+  const cats=[...new Set(PRODUITS.map(p=>p.cat))];
+  $('#filtres').innerHTML=['Tous',...cats].map(c=>
+    `<button class="puce" data-c="${c==='Tous'?'':c}" aria-pressed="${(c==='Tous'?'':c)===filtreCat}">${c}</button>`).join('');
+  $$('#filtres .puce').forEach(b=>b.onclick=()=>{ filtreCat=b.dataset.c; rendreFiltres(); rendreCatalogue(); });
+  $('#lstCats').innerHTML=cats.map(c=>`<option value="${c}">`).join('');
+}
+function rendreFrequents(){
+  const q=$('#q').value.trim();
+  const box=$('#frequents');
+  if(q||filtreCat){ box.innerHTML=''; return; }
+  const cpt={};
+  JOURNAL.slice(0,300).forEach(e=>{ cpt[e.ref]=(cpt[e.ref]||0)+1; });
+  let ids=Object.entries(cpt).sort((a,b)=>b[1]-a[1]).map(x=>x[0]);
+  let liste=ids.map(id=>PRODUITS.find(p=>p.id===id)).filter(Boolean).slice(0,6);
+  if(liste.length<6) liste=liste.concat(PRODUITS.filter(p=>!liste.includes(p)).slice(0,6-liste.length));
+  box.innerHTML='<div class="sect">'+(ids.length?'Les plus déclarés':'Pour démarrer')+'</div>'+
+    '<div class="grille">'+liste.map(p=>
+      `<button data-id="${p.id}"><span class="n">${p.nom}</span><span class="c">${p.cat} · ${p.poids} g</span></button>`).join('')+'</div>';
+  $$('#frequents .grille button').forEach(b=>b.onclick=()=>ouvrirFiche(PRODUITS.find(p=>p.id===b.dataset.id),1,'manuel',null));
+}
+function rendreCatalogue(){
+  const t=$('#q').value.trim().toLowerCase();
+  const res=PRODUITS.filter(p=>
+    (!filtreCat||p.cat===filtreCat) &&
+    (!t||p.nom.toLowerCase().includes(t)||p.cat.toLowerCase().includes(t)));
+  $('#sectListe').textContent = t ? res.length+' résultat'+(res.length>1?'s':'') : (filtreCat||'Tous les produits');
+  $('#catalogueListe').innerHTML=res.map(p=>
+    `<li><button data-id="${p.id}"><span><span class="n">${p.nom}</span><br><span class="c">${p.cat}</span></span><span class="c">${p.poids} g</span></button></li>`).join('')
+    ||'<li class="vide-msg">Aucun article ne correspond. Tu peux l\'ajouter dans les réglages.</li>';
+  $$('#catalogueListe button').forEach(b=>b.onclick=()=>ouvrirFiche(PRODUITS.find(p=>p.id===b.dataset.id),1,'manuel',null));
+  rendreFrequents();
+}
+$('#q').oninput=rendreCatalogue;
+
+/* =========================================================
+   5. PHOTO + IA
    ========================================================= */
 $('#btnPhoto').onclick=()=>$('#filePhoto').click();
-$('#btnFichier').onclick=()=>$('#fileGalerie').click();
 $('#btnRelancer').onclick=()=>$('#filePhoto').click();
 $('#filePhoto').onchange=e=>traiterFichier(e.target.files[0]);
-$('#fileGalerie').onchange=e=>traiterFichier(e.target.files[0]);
 
 function compresser(file,max=1100){
   return new Promise((res,rej)=>{
@@ -471,7 +558,7 @@ function compresser(file,max=1100){
     img.src=url;
   });
 }
-let photoCourante=null, annule=false;
+let photoCourante=null, annule=false, autres=[];
 async function traiterFichier(f){
   if(!f) return;
   try{
@@ -480,24 +567,20 @@ async function traiterFichier(f){
     etape('analyse');
     await identifier(photoCourante);
   }catch(err){ montrerVide('Reconnaissance impossible',(err.message||'Lecture impossible')+" — choisis l'article à la main."); }
-  $('#filePhoto').value=''; $('#fileGalerie').value='';
+  $('#filePhoto').value='';
 }
-$('#btnAnnulerAnalyse').onclick=()=>{ annule=true; etape('accueil'); };
+$('#btnAnnulerAnalyse').onclick=()=>{ annule=true; photoCourante=null; etape('accueil'); };
 
-/* =========================================================
-   5. RECONNAISSANCE IA
-   ========================================================= */
-let autres=[];
 async function identifier(dataUrl){
   annule=false;
   const b64=dataUrl.split(',')[1];
-  const liste=PRODUITS.map(p=>`${p.nom} | ${p.cat} | ${p.poids} g | ${p.desc}`).join('\n');
+  const cat=PRODUITS.map(p=>`${p.nom} | ${p.cat} | ${p.poids} g | ${p.desc}`).join('\n');
   const consigne=
 `Tu es contrôleur qualité en boulangerie-pâtisserie (Maison Savary).
 La photo montre un ou plusieurs produits mis au rebut.
 
 CATALOGUE — PRODUIT | CATÉGORIE | POIDS | DESCRIPTION VISUELLE :
-${liste}
+${cat}
 
 Identifie le produit du catalogue et compte les unités visibles.
 Réponds UNIQUEMENT par un objet JSON valide, sans texte autour ni balises Markdown :
@@ -509,14 +592,13 @@ Règles :
 - "confiance" : nombre entre 0 et 1.
 - "quantite" : entier >= 1, nombre d'unités de CE produit visibles.
 - "indices" : 10 mots maximum sur ce qui a permis de trancher.
-- Le format (Petit/Moyen/Grand, 120 g/300 g) ne se juge pas sur photo sans échelle : choisis le format le plus courant, l'opérateur le confirmera.
+- Le format (Petit/Moyen/Grand, 120 g/300 g) ne se juge pas sur photo sans échelle : choisis le plus courant, l'opérateur confirmera.
 - Une part coupée nette d'un flan rond correspond aux articles « Quart ».
 - Si aucun article ne correspond, renvoie {"candidats":[],"observations":"…"}.`;
 
   try{
     let texte;
     if(CFG.webhook){
-      // en production : la photo passe par Apps Script, qui détient la clé
       const rep=await fetch(CFG.webhook,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},
         body:JSON.stringify({type:'identification',image:b64,consigne:consigne})});
       if(annule) return;
@@ -544,72 +626,53 @@ Règles :
             ||PRODUITS.find(x=>norm(x.nom).includes(norm(c.produit))&&norm(c.produit).length>4);
       return p?{...p,confiance:Math.max(0,Math.min(1,+c.confiance||0)),quantite:Math.max(1,Math.round(+c.quantite||1)),indices:c.indices||''}:null;
     }).filter(Boolean);
-    if(!cands.length){ montrerVide('Produit non reconnu',res.observations||"Aucun article du catalogue ne correspond à la photo."); return; }
+    if(!cands.length){ montrerVide('Produit non reconnu',res.observations||"Aucun article du catalogue ne correspond."); return; }
     autres=cands.slice(1);
-    ouvrirResultat(cands[0],cands[0].quantite,'ia',cands[0].confiance);
+    ouvrirFiche(cands[0],cands[0].quantite,'ia',cands[0].confiance);
   }catch(err){ if(!annule) montrerVide('Reconnaissance impossible',(err.message||'Erreur')+" — choisis l'article à la main."); }
 }
 function montrerVide(t,x){ $('#videTitre').textContent=t; $('#videTexte').textContent=x; etape('vide'); }
-$('#btnVideChercher').onclick=()=>ouvrirRecherche();
-$('#btnVideRetour').onclick=()=>etape('accueil');
-$('#btnManuel').onclick=()=>{ photoCourante=null; autres=[]; ouvrirRecherche(); };
-$('#btnCorriger').onclick=()=>ouvrirRecherche();
-$('#btnRetourScan').onclick=()=>etape(enCours?'resultat':'accueil');
-$('#btnAbandonner').onclick=()=>{ enCours=null; photoCourante=null; autres=[]; etape('accueil'); };
+$('#btnVideChercher').onclick=()=>{ photoCourante=null; autres=[]; etape('accueil'); $('#q').focus(); };
+$('#btnVideRetour').onclick=()=>$('#filePhoto').click();
 
 /* =========================================================
-   6. RECHERCHE MANUELLE
-   ========================================================= */
-function ouvrirRecherche(){ etape('recherche'); $('#rechercheInput').value=''; rendreRecherche(''); $('#rechercheInput').focus(); }
-$('#rechercheInput').oninput=e=>rendreRecherche(e.target.value);
-function rendreRecherche(q){
-  const t=q.trim().toLowerCase();
-  const res=PRODUITS.filter(p=>!t||p.nom.toLowerCase().includes(t)||p.cat.toLowerCase().includes(t)).slice(0,50);
-  $('#rechercheListe').innerHTML=res.map(p=>
-    `<li><button data-i="${PRODUITS.indexOf(p)}"><span><span class="n">${p.nom}</span><br><span class="c">${p.cat}</span></span><span class="c">${p.poids} g</span></button></li>`).join('')
-    ||'<li style="color:var(--ardoise);font-size:13px;padding:12px 2px">Aucun article ne correspond. Vérifie le catalogue dans les réglages.</li>';
-  $$('#rechercheListe button').forEach(b=>b.onclick=()=>{
-    const p=PRODUITS[+b.dataset.i];
-    ouvrirResultat(p, enCours?Math.max(1,+$('#rQte').value||1):1, 'manuel', null);
-  });
-}
-
-/* =========================================================
-   7. BANDEAU RÉSULTAT
+   6. FICHE DE SAISIE
    ========================================================= */
 let enCours=null, motifChoisi='', operateurChoisi='';
-function ouvrirResultat(p,qte,source,conf){
+function ouvrirFiche(p,qte,source,conf){
+  if(!p) return;
   const premier=!enCours;
   enCours={...p};
-  $('#rSource').textContent = source==='ia'?'Produit reconnu':'Choisi dans le catalogue';
+  $('#rSource').textContent = source==='ia'?'Produit reconnu':'Saisie manuelle';
   $('#rConf').textContent = conf!=null?Math.round(conf*100)+'% de certitude':'';
   $('#rJauge').classList.toggle('masque',conf==null);
   $('#rJauge').classList.toggle('faible',conf!=null&&conf<.6);
   $('#rJauge').firstElementChild.style.width=(conf!=null?Math.round(conf*100):0)+'%';
-  $('#rIndices').textContent = p.indices || p.desc;
+  $('#rIndices').textContent=p.indices||p.desc||'';
   $('#photoRes').classList.toggle('masque',!photoCourante);
   if(photoCourante) $('#imgRes').src=photoCourante;
   $('#rQte').value=qte;
   if(premier){
     $('#rComment').value='';
-    motifChoisi=CFG.motifs.split(',')[0].trim(); operateurChoisi='';
-    rendrePuces('#rMotifs',CFG.motifs,v=>motifChoisi=v,()=>motifChoisi);
-    rendrePuces('#rOperateurs',CFG.operateurs,v=>operateurChoisi=v,()=>operateurChoisi);
+    motifChoisi=liste(CFG.motifs)[0]||'';
+    operateurChoisi=derniersOperateur()||'';
   }
+  rendrePuces('#rMotifs',CFG.motifs,v=>motifChoisi=v,()=>motifChoisi);
+  rendrePuces('#rOperateurs',CFG.operateurs,v=>operateurChoisi=v,()=>operateurChoisi);
   majEntete(); majAutres(); majVariantes(); majRaccourcis(); majValeur();
-  etape('resultat');
+  etape('fiche');
 }
+const derniersOperateur=()=>JOURNAL.length?JOURNAL[0].operateur:'';
 function majEntete(){ $('#rNom').textContent=enCours.nom; $('#rCat').textContent=enCours.cat+(enCours.poids?' · '+enCours.poids+' g':''); }
 function majAutres(){
-  const dispo=autres.filter(a=>a.id!==enCours.id);
-  const box=$('#blocAutres');
+  const dispo=autres.filter(a=>a.id!==enCours.id), box=$('#blocAutres');
   if(!dispo.length){ box.classList.add('masque'); return; }
   box.classList.remove('masque');
   $('#rAutres').innerHTML=dispo.map(a=>`<button class="puce alt" data-id="${a.id}">${a.nom} · ${Math.round(a.confiance*100)}%</button>`).join('');
   $$('#rAutres .puce').forEach(b=>b.onclick=()=>{
     const c=autres.find(x=>x.id===b.dataset.id);
     autres=[...autres.filter(x=>x.id!==c.id),{...enCours}];
-    ouvrirResultat(c,Math.max(1,+$('#rQte').value||1),'ia',c.confiance);
+    ouvrirFiche(c,Math.max(1,+$('#rQte').value||1),'ia',c.confiance);
   });
 }
 function majVariantes(){
@@ -629,7 +692,7 @@ function majRaccourcis(){
 }
 function rendrePuces(sel,csv,set,get){
   const box=$(sel);
-  box.innerHTML=csv.split(',').map(v=>v.trim()).filter(Boolean).map(v=>`<button class="puce" aria-pressed="${get()===v}">${v}</button>`).join('');
+  box.innerHTML=liste(csv).map(v=>`<button class="puce" aria-pressed="${get()===v}">${v}</button>`).join('');
   [...box.children].forEach(b=>b.onclick=()=>{ set(b.textContent); [...box.children].forEach(x=>x.setAttribute('aria-pressed',x===b)); });
 }
 function majValeur(){
@@ -646,6 +709,8 @@ function majValeur(){
 $('#rPlus').onclick=()=>{ $('#rQte').value=(+$('#rQte').value||0)+1; majValeur(); };
 $('#rMoins').onclick=()=>{ $('#rQte').value=Math.max(1,(+$('#rQte').value||1)-1); majValeur(); };
 $('#rQte').oninput=majValeur;
+$('#btnCorriger').onclick=()=>{ etape('accueil'); $('#q').value=''; rendreCatalogue(); $('#q').focus(); };
+$('#btnAbandonner').onclick=()=>{ enCours=null; photoCourante=null; autres=[]; etape('accueil'); };
 
 $('#btnEnregistrer').onclick=async ()=>{
   if(!enCours) return;
@@ -659,14 +724,14 @@ $('#btnEnregistrer').onclick=async ()=>{
     commentaire:$('#rComment').value.trim(), source:$('#rSource').textContent, envoye:false
   };
   JOURNAL.unshift(e); await store.set('pertes:journal',JOURNAL);
-  vibrer([12,50,12]); toast(q+' × '+enCours.nom+' — perte enregistrée');
+  vibrer([12,50,12]); toast(q+' × '+enCours.nom+' — enregistré');
   enCours=null; photoCourante=null; autres=[];
-  majCompteur(); rendreBilan(); etape('accueil');
+  majCompteur(); etape('accueil'); $('#q').value=''; rendreCatalogue();
   envoyerAuSheet([e],true);
 };
 
 /* =========================================================
-   8. JOURNAL
+   7. JOURNAL
    ========================================================= */
 const estAujourdhui=iso=>new Date(iso).toDateString()===new Date().toDateString();
 function majCompteur(){ $('#cptJour').textContent=JOURNAL.filter(e=>estAujourdhui(e.date)).length; }
@@ -686,9 +751,9 @@ function rendreJournal(){
 }
 $('#btnCsv').onclick=()=>{
   if(!JOURNAL.length){ toast('Rien à exporter'); return; }
-  const entete='Date;Référence;Produit;Catégorie;Quantité;Poids g;Valeur €;Motif;Opérateur;Commentaire;Source';
+  const entete='Date;Référence;Produit;Catégorie;Quantité;Poids g;Motif;Opérateur;Commentaire;Source';
   const lignes=JOURNAL.map(e=>[new Date(e.date).toLocaleString('fr-FR'),e.ref,e.nom,e.categorie,e.quantite,e.poids_g,
-    String(e.valeur).replace('.',','),e.motif,e.operateur,e.commentaire,e.source].join(';'));
+    e.motif,e.operateur,e.commentaire,e.source].join(';'));
   const blob=new Blob(['\ufeff'+[entete,...lignes].join('\n')],{type:'text/csv;charset=utf-8'});
   const a=document.createElement('a');
   a.href=URL.createObjectURL(blob); a.download='pertes_'+new Date().toISOString().slice(0,10)+'.csv'; a.click();
@@ -705,46 +770,39 @@ async function envoyerAuSheet(entrees,silencieux){
     await fetch(CFG.webhook,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},
       body:JSON.stringify({type:'pertes',lignes:entrees})});
     entrees.forEach(e=>{ const t=JOURNAL.find(x=>x.id===e.id); if(t) t.envoye=true; });
-    await store.set('pertes:journal',JOURNAL); rendreJournal();
-    if(!silencieux) toast(entrees.length+' ligne(s) envoyée(s)');
+    await store.set('pertes:journal',JOURNAL);
+    if(!silencieux){ rendreJournal(); toast(entrees.length+' ligne(s) envoyée(s)'); }
   }catch(err){ if(!silencieux) toast('Envoi impossible, les lignes restent en attente'); }
 }
 
 /* =========================================================
-   8 bis. BILAN — mois en cours
+   8. BILAN — mois en cours
    ========================================================= */
 const MOIS_FR=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
-const nb=(v,d=0)=>v.toLocaleString('fr-FR',{minimumFractionDigits:d,maximumFractionDigits:d});
 const moisDe=iso=>iso.slice(0,7);
-
 function rendreBilan(){
   const now=new Date(), mc=moisDe(now.toISOString());
   const lignes=JOURNAL.filter(e=>moisDe(e.date)===mc);
   $('#moisNom').textContent=MOIS_FR[now.getMonth()]+' '+now.getFullYear();
-
   const kg=lignes.reduce((s,e)=>s+e.poids_g,0)/1000;
   $('#kVol').textContent=nb(kg,kg<10?1:0);
   $('#kUni').textContent=nb(lignes.reduce((s,e)=>s+e.quantite,0));
   $('#kDecl').textContent=lignes.length;
-  const enAttente=lignes.filter(e=>!e.envoye).length;
-  $('#moisEtat').textContent=enAttente?enAttente+' en attente d\'envoi':'tout est synchronisé';
-  $('#moisEtat').style.color=enAttente?'var(--orange)':'var(--vert)';
+  const att=lignes.filter(e=>!e.envoye).length;
+  $('#moisEtat').textContent=att?att+" en attente d'envoi":'tout est synchronisé';
+  $('#moisEtat').style.color=att?'var(--orange)':'var(--vert)';
 
-  // jour par jour
-  const njours=new Date(now.getFullYear(),now.getMonth()+1,0).getDate();
-  const jours=Array(njours).fill(0);
+  const nj=new Date(now.getFullYear(),now.getMonth()+1,0).getDate();
+  const jours=Array(nj).fill(0);
   lignes.forEach(e=>{ jours[new Date(e.date).getDate()-1]+=e.poids_g/1000; });
   const mx=Math.max(...jours,0.001);
   $('#gMax').textContent=mx>0.001?'max '+nb(mx,1)+' kg':'';
-  $('#gJours').innerHTML=
-    '<div class="barres">'+jours.map((v,i)=>{
-      const j=i+1, cl=(v===0?' vide':'')+(j===now.getDate()?' today':'');
+  $('#gJours').innerHTML='<div class="barres">'+jours.map((v,i)=>{
+      const cl=(v===0?' vide':'')+((i+1)===now.getDate()?' today':'');
       return `<div class="col${cl}"><i style="height:${v?Math.max(4,Math.round(v/mx*100)):3}%"></i></div>`;
-    }).join('')+'</div>'+
-    '<div class="axe">'+jours.map((v,i)=>`<span>${(i+1)%5===0||i===0?i+1:''}</span>`).join('')+'</div>';
+    }).join('')+'</div><div class="axe">'+jours.map((v,i)=>`<span>${(i+1)%5===0||i===0?i+1:''}</span>`).join('')+'</div>';
 
-  // répartitions
-  const grouper=cle=>lignes.reduce((o,e)=>{ const k=e[cle]; o[k]=(o[k]||0)+e.poids_g/1000; return o; },{});
+  const grouper=cle=>lignes.reduce((o,e)=>{ o[e[cle]]=(o[e[cle]]||0)+e.poids_g/1000; return o; },{});
   const rangs=(obj,cible,n)=>{
     const l=Object.entries(obj).sort((a,b)=>b[1]-a[1]).slice(0,n);
     if(!l.length){ $(cible).innerHTML='<p class="note" style="margin:0">Aucune perte déclarée ce mois-ci.</p>'; return; }
@@ -758,20 +816,88 @@ function rendreBilan(){
 }
 
 /* =========================================================
-   9. RÉGLAGES
+   9. RÉGLAGES — tout modifiable, sauvegarde immédiate
    ========================================================= */
-$('#btnSauverCfg').onclick=async ()=>{
-  CFG={
-    webhook:$('#cfgWebhook').value.trim(),
-    catalogue:$('#cfgCatalogue').value.trim()||CATALOGUE_DEFAUT,
-    operateurs:$('#cfgOperateurs').value.trim()||CONFIG_DEFAUT.operateurs,
-    motifs:$('#cfgMotifs').value.trim()||CONFIG_DEFAUT.motifs
-  };
+async function sauver(){ await store.set('pertes:config',CFG); }
+
+function editeurListe(sel, champ, compteur){
+  const vals=liste(CFG[champ]);
+  $(compteur).textContent=vals.length;
+  $(sel).innerHTML=vals.map((v,i)=>
+    `<span class="item">${v}<button data-i="${i}" aria-label="Retirer ${v}">×</button></span>`).join('')
+    ||'<span class="vide-msg" style="padding:4px 0">Liste vide.</span>';
+  $$(sel+' button').forEach(b=>b.onclick=async ()=>{
+    const l=liste(CFG[champ]); const retire=l.splice(+b.dataset.i,1)[0];
+    CFG[champ]=l.join(', ');
+    await sauver(); editeurListe(sel,champ,compteur); toast(retire+' retiré');
+  });
+}
+async function ajouter(champ, input, sel, compteur){
+  const v=$(input).value.trim();
+  if(!v) return;
+  const l=liste(CFG[champ]);
+  if(l.some(x=>x.toLowerCase()===v.toLowerCase())){ toast('Déjà dans la liste'); return; }
+  l.push(v); CFG[champ]=l.join(', ');
+  await sauver(); $(input).value=''; editeurListe(sel,champ,compteur); toast(v+' ajouté');
+}
+$('#addOp').onclick=()=>ajouter('operateurs','#newOp','#listeOp','#nOp');
+$('#newOp').onkeydown=e=>{ if(e.key==='Enter') $('#addOp').click(); };
+$('#addMotif').onclick=()=>ajouter('motifs','#newMotif','#listeMotif','#nMotif');
+$('#newMotif').onkeydown=e=>{ if(e.key==='Enter') $('#addMotif').click(); };
+
+$('#cfgWebhook').onchange=async ()=>{ CFG.webhook=$('#cfgWebhook').value.trim(); await sauver(); toast('Destination enregistrée'); };
+$('#btnTestWebhook').onclick=async ()=>{
+  CFG.webhook=$('#cfgWebhook').value.trim(); await sauver();
+  if(!CFG.webhook){ toast('Aucune URL saisie'); return; }
+  toast('Test en cours…');
+  try{
+    const r=await fetch(CFG.webhook,{method:'GET'});
+    const d=await r.json();
+    toast(d.ok?'Connexion établie ('+(d.lignes?d.lignes.length:0)+' lignes)':'Le serveur a répondu une erreur');
+  }catch(err){ toast('Connexion impossible'); }
+};
+
+$('#addProd').onclick=async ()=>{
+  const nom=$('#pNom').value.trim(), cat=$('#pCat').value.trim();
+  if(!nom||!cat){ toast('Nom et catégorie obligatoires'); return; }
+  if(PRODUITS.some(p=>p.id===slug(nom))){ toast('Ce produit existe déjà'); return; }
+  const ligne=[cat,nom,parseInt($('#pPoids').value)||0,$('#pDesc').value.trim(),''].join(';');
+  CFG.catalogue=(CFG.catalogue.trim()+'\n'+ligne).trim();
   PRODUITS=parseCatalogue(CFG.catalogue);
-  await store.set('pertes:config',CFG);
-  $('#cptProduits').textContent='· '+PRODUITS.length+' articles';
+  await sauver();
+  ['#pNom','#pCat','#pPoids','#pDesc'].forEach(s=>$(s).value='');
+  $('#nProd').textContent=PRODUITS.length;
+  $('#cfgCatalogue').value=CFG.catalogue;
+  rendreFiltres(); rendreCatalogue();
+  toast(nom+' ajouté');
+};
+$('#voirCat').onclick=()=>{
+  const z=$('#zoneCat'), ouvert=z.classList.toggle('masque');
+  $('#voirCat').textContent = ouvert?'Modifier le catalogue en entier ▾':'Replier ▴';
+};
+$('#btnSauverCat').onclick=async ()=>{
+  const t=$('#cfgCatalogue').value.trim();
+  const test=parseCatalogue(t);
+  if(!test.length){ toast('Catalogue illisible, rien enregistré'); return; }
+  CFG.catalogue=t; PRODUITS=test;
+  await sauver();
+  $('#nProd').textContent=PRODUITS.length;
+  rendreFiltres(); rendreCatalogue();
   toast(PRODUITS.length+' produits chargés');
 };
+$('#btnReset').onclick=async ()=>{
+  CFG={...CONFIG_DEFAUT, webhook:CFG.webhook};
+  PRODUITS=parseCatalogue(CFG.catalogue);
+  await sauver(); peuplerReglages(); rendreFiltres(); rendreCatalogue();
+  toast('Réglages réinitialisés');
+};
+function peuplerReglages(){
+  $('#cfgWebhook').value=CFG.webhook;
+  $('#cfgCatalogue').value=CFG.catalogue;
+  $('#nProd').textContent=PRODUITS.length;
+  editeurListe('#listeOp','operateurs','#nOp');
+  editeurListe('#listeMotif','motifs','#nMotif');
+}
 
 /* =========================================================
    10. DÉMARRAGE
@@ -780,11 +906,8 @@ $('#btnSauverCfg').onclick=async ()=>{
   CFG={...CONFIG_DEFAUT,...(await store.get('pertes:config')||{})};
   JOURNAL=(await store.get('pertes:journal'))||[];
   PRODUITS=parseCatalogue(CFG.catalogue);
-  $('#cfgWebhook').value=CFG.webhook;
-  $('#cfgCatalogue').value=CFG.catalogue;
-  $('#cfgOperateurs').value=CFG.operateurs;
-  $('#cfgMotifs').value=CFG.motifs;
-  $('#cptProduits').textContent='· '+PRODUITS.length+' articles';
+  if(STOCKAGE==='memoire') $('#alerteStockage').classList.remove('masque');
+  peuplerReglages(); rendreFiltres(); rendreCatalogue();
   majCompteur(); rendreJournal(); rendreBilan();
 })();
 </script>
