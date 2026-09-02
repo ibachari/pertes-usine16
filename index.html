@@ -783,8 +783,11 @@ $('#btnEnvoyer').onclick=()=>{
 async function envoyerAuSheet(entrees,silencieux){
   if(!CFG.webhook){ if(!silencieux) toast("Ajoute l'URL du Sheet dans les réglages"); return; }
   try{
-    await fetch(CFG.webhook,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},
+    const rep = await fetch(CFG.webhook,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},
       body:JSON.stringify({type:'pertes',lignes:entrees})});
+    if(!rep.ok) throw new Error('Le serveur a répondu '+rep.status);
+    const r = await rep.json();
+    if(!r.ok) throw new Error(r.erreur || 'Le Sheet a refusé les lignes');
     entrees.forEach(e=>{ const t=JOURNAL.find(x=>x.id===e.id); if(t) t.envoye=true; });
     await store.set('pertes:journal',JOURNAL);
     if(!silencieux){ rendreJournal(); toast(entrees.length+' ligne(s) envoyée(s)'); }
