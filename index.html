@@ -7,6 +7,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="256x256" href="brand/favicon-256.png">
+<link rel="apple-touch-icon" href="brand/favicon-256.png">
 <style>
 :root{
   --acier:#E5E9E8; --acier-2:#D2D9D8; --papier:#FFFFFF;
@@ -25,8 +28,9 @@ input,textarea{font:inherit;color:inherit}
 
 .app{max-width:520px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;padding:0 14px calc(84px + env(safe-area-inset-bottom))}
 .topbar{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding:16px 2px 12px}
-.brand{font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:.06em;text-transform:uppercase;line-height:1}
-.brand small{display:block;font-family:var(--mono);font-size:10px;font-weight:400;letter-spacing:.14em;color:var(--ardoise);margin-top:5px}
+.brand{display:flex;flex-direction:column;gap:5px}
+.brand img{height:16px;width:auto;display:block}
+.brand small{display:block;font-family:var(--mono);font-size:10px;font-weight:400;letter-spacing:.14em;color:var(--ardoise);text-transform:uppercase}
 .compteur{text-align:right;font-family:var(--mono);font-size:10px;color:var(--ardoise);letter-spacing:.04em}
 .compteur b{display:block;font-family:var(--display);font-size:24px;color:var(--encre);line-height:1;letter-spacing:0}
 .vue{display:none;flex:1;flex-direction:column}
@@ -193,7 +197,7 @@ textarea.champ{min-height:130px;font-family:var(--mono);font-size:11px;resize:ve
 <body>
 <div class="app">
   <div class="topbar">
-    <div class="brand">Relevé des pertes<small>MAISON SAVARY · ATELIER</small></div>
+    <div class="brand"><img src="brand/logo-noir.png" alt="Maison Savary"><small>Relevé des pertes · Atelier</small></div>
     <div class="compteur"><b id="cptJour">0</b>pertes aujourd'hui</div>
   </div>
 
